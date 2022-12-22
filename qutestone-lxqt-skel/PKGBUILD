@@ -1,0 +1,24 @@
+#ORginal PKGBUILD creator: stefonarch ste at vogliaditerra dot com
+# PKGBUILD for endeavouros-lxqt-theme
+_pkgname=qutestone-lxqt-skel
+pkgname=qutestone-lxqt-skel
+pkgver=1.3.1
+pkgrel=1
+pkgdesc="Endeavouros Qutestone lxqt skel"
+arch=('any')
+url="https://github.com/Qutestone/qutestone-lxqt-skel"
+license=('CCPL:by-sa')
+depends=('lxqt-panel')
+makedepends=('git')
+optdepends=()
+provides=("${pkgname}=${pkgver}")
+source=("https://github.com/Qutestone/qutestone-lxqt-skel/archive/${pkgver}.tar.gz")
+md5sums=('SKIP')
+
+
+package() {
+  cd ${srcdir}/${_pkgname}-${pkgver}
+  install -dm 755 "${pkgdir}"/etc/skel/
+  cp -a --no-preserve='ownership' . "${pkgdir}"/etc/skel/
+  }
+  

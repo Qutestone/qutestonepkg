@@ -1,0 +1,24 @@
+# PKGBUILD coppied from: stefonarch ste at vogliaditerra dot com
+# PKGBUILD for endeavouros-lxqt-theme made by ringo32
+_pkgname=endeavouros-lxqt-theme
+pkgname=endeavouros-lxqt-theme
+pkgver=1.3
+pkgrel=1
+pkgdesc="Endeavouros lxqt themes  for the LXQt Desktop"
+arch=('any')
+url="https://github.com/Qutestone/endeavouros-lxqt-theme"
+license=('GPL')
+depends=('lxqt-themes')
+makedepends=('git')
+optdepends=()
+provides=("${pkgname}=${pkgver}")
+source=("https://github.com/Qutestone/endeavouros-lxqt-theme/archive/${pkgver}.tar.gz")
+md5sums=('cdc5e97a946acde2a7cc00f23614d2a9')
+
+
+package() {
+  cd ${srcdir}/${_pkgname}-${pkgver}
+  install -dm 755 "${pkgdir}"/usr/share/lxqt/
+  cp -a --no-preserve='ownership' * "${pkgdir}"/usr/share/lxqt/
+  
+}
